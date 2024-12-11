@@ -1,1 +1,1 @@
-### 다이어 그램은 ClassDiagram.io 파일입니당
+### 다이어 그램은 ClassDiagram.drawio 파일입니당
