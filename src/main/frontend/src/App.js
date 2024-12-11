@@ -1,19 +1,25 @@
-import React, {useEffect, useState} from 'react';
-import axios from 'axios';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Main from './components/Main';
+import Cart from './components/user/Cart';
+import ProductRoutes from './components/routes/ProductRoutes';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import UserRoutes from './components/routes/UserRoutes';
 
 function App() {
-  const [data, setData] = useState('')
-
-  useEffect(() => {
-    axios.get('/api/data')
-        .then(res => setData(res.data))
-        .catch(err => console.log(err))
-  }, []);
-
   return (
-      <div>
-        받아온 값 : {data}
-      </div>
+    <div className="App">
+      <BrowserRouter>
+        <Header/>
+        <Routes>
+          <Route path='/' element={<Main/>}/>
+          <Route path='/cart' element={<Cart/>}/>
+          <Route path='/product/*' element={<ProductRoutes/>}/>
+          <Route path='/user/*' element={<UserRoutes/>}/>
+        </Routes>
+        <Footer/>
+      </BrowserRouter>
+    </div>
   );
 }
 
